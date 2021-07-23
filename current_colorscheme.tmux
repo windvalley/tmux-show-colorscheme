@@ -17,7 +17,7 @@ do_interpolation() {
 }
 
 update_tmux_option() {
-    local option option_value, new_option_value
+    local option option_value new_option_value
 
     option="$1"
     option_value="$(get_tmux_option "$option")"

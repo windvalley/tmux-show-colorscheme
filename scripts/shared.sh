@@ -3,7 +3,7 @@
 #
 
 get_tmux_option() {
-    local option, default_value, option_value
+    local option default_value option_value
 
     option=$1
     default_value=$2
