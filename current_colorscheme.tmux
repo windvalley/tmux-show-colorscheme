@@ -2,18 +2,30 @@
 
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-current_colorscheme_name="#($CURRENT_DIR/scripts/print_current_colorscheme.sh)"
-current_colorscheme_interpolation_string="\#{current_colorscheme}"
+interpolations=(
+    "\#{current_colorscheme}"
+    "\#{current_font}"
+    "\#{current_font_size}"
+)
+
+commands=(
+    "#($CURRENT_DIR/scripts/print_current_colorscheme.sh)"
+    "#($CURRENT_DIR/scripts/print_current_font.sh)"
+    "#($CURRENT_DIR/scripts/print_current_font_size.sh)"
+)
 
 cd "$CURRENT_DIR" || exit 1
 
 source scripts/shared.sh
 
 do_interpolation() {
-    local string="$1"
-    local interpolated="${string/$current_colorscheme_interpolation_string/$current_colorscheme_name}"
+    local all_interpolated="$1"
 
-    echo "$interpolated"
+    for ((i = 0; i < ${#commands[@]}; i++)); do
+        all_interpolated=${all_interpolated//${interpolations[$i]}/${commands[$i]}}
+    done
+
+    echo "$all_interpolated"
 }
 
 update_tmux_option() {
