@@ -6,12 +6,14 @@ interpolations=(
     "\#{current_colorscheme}"
     "\#{current_font}"
     "\#{current_font_size}"
+    "\#{current_font_style}"
 )
 
 commands=(
     "#($CURRENT_DIR/scripts/print_current_colorscheme.sh)"
     "#($CURRENT_DIR/scripts/print_current_font.sh)"
     "#($CURRENT_DIR/scripts/print_current_font_size.sh)"
+    "#($CURRENT_DIR/scripts/print_current_font_style.sh)"
 )
 
 cd "$CURRENT_DIR" || exit 1
