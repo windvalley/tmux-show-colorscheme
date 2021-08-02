@@ -7,6 +7,7 @@ interpolations=(
     "\#{current_font}"
     "\#{current_font_size}"
     "\#{current_font_style}"
+    "\#{current_opacity}"
 )
 
 commands=(
@@ -14,6 +15,7 @@ commands=(
     "#($CURRENT_DIR/scripts/print_current_font.sh)"
     "#($CURRENT_DIR/scripts/print_current_font_size.sh)"
     "#($CURRENT_DIR/scripts/print_current_font_style.sh)"
+    "#($CURRENT_DIR/scripts/print_current_opacity.sh)"
 )
 
 cd "$CURRENT_DIR" || exit 1
