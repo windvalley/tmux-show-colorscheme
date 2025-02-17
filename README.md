@@ -1,6 +1,6 @@
 # tmux-show-colorscheme
 
-Only fit for `vimhack/dotfiles`
+Only fit for `windvalley/dotfiles`
 
 ## Description
 

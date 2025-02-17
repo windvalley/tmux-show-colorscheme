@@ -2,8 +2,9 @@
 # print_current_font_style.sh
 #
 
-alacritty_conf=~/.config/alacritty/alacritty.yml
+script_dir=$(cd "$(dirname $0)" && pwd)
+source $script_dir/env.zsh
 
-current_font_style=$(grep 'style:' $alacritty_conf | head -1 | awk '{print $NF}')
+current_font_style=$(grep -Ev '^#' $ALACRITTY_PRIVATE_CONF | awk -F'"' '/^normal /{print $(NF-1)}')
 
 echo -n "$current_font_style"

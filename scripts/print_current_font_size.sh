@@ -2,8 +2,9 @@
 # print_current_font_size.sh
 #
 
-alacritty_conf=~/.config/alacritty/alacritty.yml
+script_dir=$(cd "$(dirname $0)" && pwd)
+source $script_dir/env.zsh
 
-current_font_size=$(awk '/  size:/{print $NF}' $alacritty_conf)
+current_font_size=$(awk '/size =/{print $NF}' $ALACRITTY_PRIVATE_CONF)
 
 echo -n "$current_font_size"
